@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="theme-color" content="#800020" />
+    <title>Surya's Clothing | Traditional Women's Wear</title>
+    <meta name="description" content="Premium Sarees, Nighties, and Women's clothing in Tiruppur. Traditional aesthetics with modern quality." />
+    
+    <!-- PWA Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJ7Im5hbWUiOiJTdXJ5YSdzIENsb3RoaW5nIiwic2hvcnRfbmFtZSI6IlN1cnlhJ3MiLCJzdGFydF91cmwiOiIvIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZjhlMSIsInRoZW1lX2NvbG9yIjoiIzgwMDAyMCIsImljb25zIjpbeyJzcmMiOiJodHRwczovL3BsYWNlaG9sZC5jby81MTJ4NTEyLzgwMDAyMC9GRkQ3MDA/dGV4dD1TQyIsInNpemVzIjoiNTEyeDUxMiIsInR5cGUiOiJpbWFnZS9wbmcifV19">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'temple-gold': '#FFD700',
+              'silk-maroon': '#800020',
+              'sandal-cream': '#FFF8E1',
+              'kumkum-red': '#DC143C',
+              'turmeric-yellow': '#FFC20E',
+              'basil-green': '#228B22',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif'],
+              serif: ['Cinzel', 'serif'],
+              tamil: ['Noto Sans Tamil', 'sans-serif'],
+            },
+            animation: {
+              'spin-slow': 'spin 12s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-gold': 'pulse-gold 2s infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'pulse-gold': {
+                '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 215, 0, 0.4)' },
+                '70%': { boxShadow: '0 0 0 10px rgba(255, 215, 0, 0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+        background-color: #FFF8E1;
+        background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px);
+        background-size: 20px 20px;
+      }
+      .font-serif { font-family: 'Cinzel', serif; }
+      .perspective-1000 { perspective: 1000px; }
+      .transform-style-3d { transform-style: preserve-3d; }
+      .backface-hidden { backface-visibility: hidden; }
+      .rotate-y-180 { transform: rotateY(180deg); }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #FFF8E1; }
+      ::-webkit-scrollbar-thumb { background: #800020; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #600018; }
+      
+      .kolam-bg {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23800020' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-sandal-cream text-gray-900 kolam-bg overflow-x-hidden">
+    <div id="root"></div>
+  </body>
+</html>
