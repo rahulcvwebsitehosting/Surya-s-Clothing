@@ -1,18 +1,18 @@
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { LanguageProvider } from './components/LanguageContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import BottomNav from './components/BottomNav';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
-import AudioPlayer from './components/AudioPlayer';
+import { LanguageProvider } from './components/LanguageContext.tsx';
+import Navbar from './components/Navbar.tsx';
+import Footer from './components/Footer.tsx';
+import BottomNav from './components/BottomNav.tsx';
+import FloatingWhatsApp from './components/FloatingWhatsApp.tsx';
+import AudioPlayer from './components/AudioPlayer.tsx';
 
 // Pages
-import Home from './pages/Home';
-import Products from './pages/Products';
-import HowToOrder from './pages/HowToOrder';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Home from './pages/Home.tsx';
+import Products from './pages/Products.tsx';
+import HowToOrder from './pages/HowToOrder.tsx';
+import About from './pages/About.tsx';
+import Contact from './pages/Contact.tsx';
 
 // ScrollToTop component to ensure pages start at top on navigation
 const ScrollToTop = () => {

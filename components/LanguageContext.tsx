@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { Language } from '../types';
+import { TEXTS } from '../constants.ts';
 
 interface LanguageContextType {
   language: Language;
@@ -12,13 +13,10 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children?: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  // Helper to get translation or fallback
   const t = (key: string): string => {
-    // In a real app, import TEXTS here, but to avoid circular dependencies with constants
-    // we will pass the texts object or just rely on the consumer to import TEXTS.
-    // For this simple app, we'll let components handle the dictionary lookup 
-    // using the 'language' value from context.
-    return key; 
+    const entry = (TEXTS as any)[key];
+    if (!entry) return key;
+    return entry[language] || entry['en'] || key;
   };
 
   return (

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Heart } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
-import { TEXTS } from '../constants';
-import CulturalWidget from './CulturalWidget';
+import { useLanguage } from './LanguageContext.tsx';
+import CulturalWidget from './CulturalWidget.tsx';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -45,10 +44,10 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4">
-            <NavLink to="/" className={linkClass}>{TEXTS.home[language]}</NavLink>
-            <NavLink to="/products" className={linkClass}>{TEXTS.products[language]}</NavLink>
-            <NavLink to="/order" className={linkClass}>{TEXTS.howToOrder[language]}</NavLink>
-            <NavLink to="/about" className={linkClass}>{TEXTS.about[language]}</NavLink>
+            <NavLink to="/" className={linkClass}>{t('home')}</NavLink>
+            <NavLink to="/products" className={linkClass}>{t('products')}</NavLink>
+            <NavLink to="/order" className={linkClass}>{t('howToOrder')}</NavLink>
+            <NavLink to="/about" className={linkClass}>{t('about')}</NavLink>
             
             <button className="text-gray-200 hover:text-temple-gold p-2">
                 <Heart size={24} />
@@ -84,11 +83,11 @@ const Navbar: React.FC = () => {
               <CulturalWidget />
            </div>
           <div className="flex flex-col space-y-2">
-            <NavLink to="/" onClick={toggleMenu} className={linkClass}>{TEXTS.home[language]}</NavLink>
-            <NavLink to="/products" onClick={toggleMenu} className={linkClass}>{TEXTS.products[language]}</NavLink>
-            <NavLink to="/order" onClick={toggleMenu} className={linkClass}>{TEXTS.howToOrder[language]}</NavLink>
-            <NavLink to="/about" onClick={toggleMenu} className={linkClass}>{TEXTS.about[language]}</NavLink>
-            <NavLink to="/contact" onClick={toggleMenu} className={linkClass}>{TEXTS.contact[language]}</NavLink>
+            <NavLink to="/" onClick={toggleMenu} className={linkClass}>{t('home')}</NavLink>
+            <NavLink to="/products" onClick={toggleMenu} className={linkClass}>{t('products')}</NavLink>
+            <NavLink to="/order" onClick={toggleMenu} className={linkClass}>{t('howToOrder')}</NavLink>
+            <NavLink to="/about" onClick={toggleMenu} className={linkClass}>{t('about')}</NavLink>
+            <NavLink to="/contact" onClick={toggleMenu} className={linkClass}>{t('contact')}</NavLink>
           </div>
         </div>
       )}

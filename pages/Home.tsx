@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, ShoppingBag, Truck, ShieldCheck, Clock } from 'lucide-react';
-import { TEXTS, PRODUCTS } from '../constants';
-import { useLanguage } from '../components/LanguageContext';
+import { TEXTS, PRODUCTS } from '../constants.ts';
+import { useLanguage } from '../components/LanguageContext.tsx';
 
 const Home: React.FC = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="inline-block border border-temple-gold px-4 py-1 rounded-full text-temple-gold text-sm font-serif tracking-widest mb-4 animate-bounce">
-             ✨ {TEXTS.auspiciousTime[language]}
+             ✨ {t('auspiciousTime')}
           </div>
           <h1 className="text-4xl md:text-7xl font-serif font-bold mb-6 leading-tight drop-shadow-lg">
             {language === 'en' ? (
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             )}
           </h1>
           <p className="text-lg md:text-2xl opacity-90 mb-10 font-light font-sans max-w-2xl mx-auto">
-            {TEXTS.welcomeSubtitle[language]}
+            {t('welcomeSubtitle')}
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link 
@@ -67,7 +67,7 @@ const Home: React.FC = () => {
               to="/about"
               className="border-2 border-sandal-cream text-sandal-cream font-bold py-4 px-10 rounded-full hover:bg-sandal-cream hover:text-silk-maroon transition-colors"
             >
-              {TEXTS.about[language]}
+              {t('about')}
             </Link>
           </div>
         </div>
@@ -90,17 +90,32 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
             <span className="text-silk-maroon font-serif text-lg italic">Curated for you</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mt-2 font-serif">{TEXTS.products[language]}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mt-2 font-serif">{t('products')}</h2>
             <div className="w-24 h-1 bg-silk-maroon mx-auto mt-4 rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-                { title: TEXTS.sarees[language], img: 'https://images.unsplash.com/photo-1583391733958-e026b1346331?q=80&w=600&auto=format&fit=crop', color: 'bg-red-900', link: '/products?filter=Sarees' },
-                { title: TEXTS.nighties[language], img: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop', color: 'bg-purple-900', link: '/products?filter=Nighties' },
-                { title: TEXTS.womensClothing[language], img: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=600&auto=format&fit=crop', color: 'bg-green-900', link: '/products?filter=WomensClothing' }
+                { 
+                  title: t('sarees'), 
+                  img: 'https://images.wholesalesalwar.com/2024y/October/53239/Pink-Pure%20Tissue%20Silk-Wedding%20Wear-Embroidery%20Work-Saree-THEWEDDINGSAGA-8403.jpg', 
+                  color: 'bg-red-900', 
+                  link: '/products?filter=Sarees' 
+                },
+                { 
+                  title: t('nighties'), 
+                  img: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop', 
+                  color: 'bg-purple-900', 
+                  link: '/products?filter=Nighties' 
+                },
+                { 
+                  title: t('womensClothing'), 
+                  img: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=600&auto=format&fit=crop', 
+                  color: 'bg-green-900', 
+                  link: '/products?filter=WomensClothing' 
+                }
             ].map((cat, idx) => (
-                <Link to="/products" key={idx} className="group relative h-96 rounded-t-full border-4 border-silk-maroon overflow-hidden shadow-2xl hover:-translate-y-2 transition-transform">
+                <Link to={cat.link} key={idx} className="group relative h-96 rounded-t-full border-4 border-silk-maroon overflow-hidden shadow-2xl hover:-translate-y-2 transition-transform">
                     <img src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div className="absolute bottom-8 left-0 right-0 text-center">
@@ -118,10 +133,10 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="flex justify-between items-end mb-10">
                 <div>
-                    <h2 className="text-3xl font-bold text-silk-maroon font-serif">{TEXTS.newArrivals[language]}</h2>
+                    <h2 className="text-3xl font-bold text-silk-maroon font-serif">{t('newArrivals')}</h2>
                 </div>
                 <Link to="/products" className="text-silk-maroon font-bold hover:text-temple-gold transition-colors flex items-center gap-2">
-                    {TEXTS.viewAll[language]} <ArrowRight size={20} />
+                    {t('viewAll')} <ArrowRight size={20} />
                 </Link>
             </div>
             
